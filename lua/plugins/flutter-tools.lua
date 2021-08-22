@@ -28,7 +28,7 @@ require("flutter-tools").setup {
     }
   },
   debugger = { -- integrate with nvim dap + install dart code debugger
-    enabled = true,
+    enabled = false,
   },
   -- flutter_path = "<full/path/if/needed>", -- <-- this takes priority over the lookup
   -- flutter_lookup_cmd = nil, -- example "dirname $(which flutter)" or "asdf where flutter"
@@ -69,6 +69,7 @@ require("flutter-tools").setup {
         vim.fn.expand("$HOME/flutter/packages"), 
         vim.fn.expand("$HOME/flutter/bin/cache"), 
         vim.fn.expand("$HOME/flutter/.pub-cache"),
+        vim.fn.expand("$HOME/flutter"),
         vim.fn.expand("$HOME/.pub-cache"),
       }
     }

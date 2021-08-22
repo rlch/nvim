@@ -1,10 +1,6 @@
 let g:fern#drawer_width = 35
 let g:fern#default_hidden = 1
 
-nnoremap <silent> <Plug>(focus-fern) :Fern . -drawer <CR>
-nnoremap <silent> <Plug>(toggle-fern) :Fern . -drawer -toggle -reveal=% <CR>
-" nmap <leader>e <Plug>(focus-fern)<Plug>(fern-action-zoom:reset)
-nmap <leader>e <Plug>(toggle-fern)<Plug>(fern-action-zoom:reset)
 
 function! s:init_fern() abort
   nmap <buffer> H <Plug>(fern-action-open:split)
@@ -17,7 +13,12 @@ function! s:init_fern() abort
   nmap <buffer> D <Plug>(fern-action-new-dir)
   nmap <buffer> S <Plug>(fern-action-hidden-toggle)
   nmap <buffer> dd <Plug>(fern-action-trash)
+
+  nnoremap <silent> <Plug>(focus-fern) :Fern . -drawer <CR>
+  nnoremap <silent> <Plug>(toggle-fern) :Fern . -drawer -toggle -reveal=% <CR>
+  nmap <leader>e <Plug>(toggle-fern)<Plug>(fern-action-zoom:reset)
 endfunction
+
 
 augroup fern-custom
   autocmd! *
@@ -29,3 +30,9 @@ let g:fern#renderer = "nerdfont"
 let g:fern_git_status#disable_ignored = 1
 let g:fern_git_status#disable_untracked = 1
 let g:fern_git_status#disable_submodules = 1
+
+
+nnoremap <silent> <Plug>(focus-fern) :Fern . -drawer <CR>
+nnoremap <silent> <Plug>(toggle-fern) :Fern . -drawer -toggle -reveal=% <CR>
+nmap <leader>e <Plug>(toggle-fern)<Plug>(fern-action-zoom:reset)
+

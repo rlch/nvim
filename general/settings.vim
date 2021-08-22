@@ -33,5 +33,6 @@ set mmp=2000
 set foldmethod=syntax
 set foldlevelstart=20
 set noea
+set autoread
 
 colorscheme nord

@@ -8,3 +8,5 @@ require 'lspconfig'.yamlls.setup{
     }
   }
 }
+
+require 'lspconfig'.pyright.setup{}
