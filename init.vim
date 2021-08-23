@@ -15,8 +15,12 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'ray-x/lsp_signature.nvim'
-" Plug 'rcarriga/nvim-dap-ui'
-" Plug 'mfussenegger/nvim-dap'
+
+Plug 'rcarriga/nvim-dap-ui'
+Plug 'mfussenegger/nvim-dap'
+
+Plug 'vim-test/vim-test'
+Plug 'rcarriga/vim-ultest', { 'do': ':UpdateRemotePlugins' }
 
 " Markdown
 Plug 'godlygeek/tabular'
@@ -62,7 +66,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 " GitHub
-Plug 'pwntester/octo.nvim'
+" Plug 'pwntester/octo.nvim'
 
 " Other
 Plug 'b3nj5m1n/kommentary'
@@ -81,7 +85,7 @@ source $HOME/.config/nvim/general/settings.vim
 source $HOME/.config/nvim/general/mappings.vim
 
 " Plugin config
-luafile $HOME/.config/nvim/lua/plugins/octo.lua
+" luafile $HOME/.config/nvim/lua/plugins/octo.lua
 source $HOME/.config/nvim/plugins/tmuxline.vim
 source $HOME/.config/nvim/plugins/telescope.vim
 source $HOME/.config/nvim/plugins/fern.vim
@@ -102,6 +106,7 @@ luafile $HOME/.config/nvim/lua/plugins/presence.lua
 " LSP
 luafile $HOME/.config/nvim/lua/plugins/luasnip.lua
 luafile $HOME/.config/nvim/lua/plugins/lsp-config.lua
+source $HOME/.config/nvim/plugins/vim-test.vim
 source $HOME/.config/nvim/plugins/lsp-config.vim
 source $HOME/.config/nvim/plugins/dart.vim
 source $HOME/.config/nvim/plugins/flutter.vim
@@ -109,8 +114,8 @@ source $HOME/.config/nvim/plugins/nvim-compe.vim
 luafile $HOME/.config/nvim/lua/plugins/nvim-compe.lua
 luafile $HOME/.config/nvim/lua/plugins/flutter-tools.lua
 luafile $HOME/.config/nvim/lua/plugins/lspsaga.lua
-" luafile $HOME/.config/nvim/lua/plugins/dap.lua
-" source $HOME/.config/nvim/plugins/dap.vim
+luafile $HOME/.config/nvim/lua/plugins/dap.lua
+source $HOME/.config/nvim/plugins/dap.vim
 luafile $HOME/.config/nvim/lua/plugins/nvim-treesitter.lua
 luafile $HOME/.config/nvim/lua/plugins/diffview.lua
 
