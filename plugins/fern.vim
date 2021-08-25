@@ -32,7 +32,8 @@ let g:fern_git_status#disable_untracked = 1
 let g:fern_git_status#disable_submodules = 1
 
 
-nnoremap <silent> <Plug>(focus-fern) :Fern . -drawer <CR>
+nnoremap <silent> <Plug>(focus-fern) :Fern . -drawer -reveal=% <CR>
 nnoremap <silent> <Plug>(toggle-fern) :Fern . -drawer -toggle -reveal=% <CR>
-nmap <leader>e <Plug>(toggle-fern)<Plug>(fern-action-zoom:reset)
+nmap <leader>e <Plug>(focus-fern)<Plug>(fern-action-zoom:reset)
+nmap <leader>te <Plug>(toggle-fern)<Plug>(fern-action-zoom:reset)
 

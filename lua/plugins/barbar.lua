@@ -2,7 +2,7 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 -- Move to previous/next
-map('n', '<leader>tj', ':BufferPrevious<CR>', opts)
+--[[ map('n', '<leader>tj', ':BufferPrevious<CR>', opts)
 map('n', '<leader>tk', ':BufferNext<CR>', opts)
 -- Re-order to previous/next
 map('n', '<leader>tJ', ':BufferMovePrevious<CR>', opts)
@@ -31,7 +31,7 @@ map('n', '<leader>td', ':BufferClose<CR>', opts)
 map('n', '<C-p>', ':BufferPick<CR>', opts)
 -- Sort automatically by...
 map('n', '<leader>bd', ':BufferOrderByDirectory<CR>', opts)
-map('n', '<leader>bl', ':BufferOrderByLanguage<CR>', opts)
+map('n', '<leader>bl', ':BufferOrderByLanguage<CR>', opts) ]]
 
 
 -- Set barbar's options

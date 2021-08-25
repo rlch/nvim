@@ -5,6 +5,7 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 " LSP Plugins
 " Plug 'dart-lang/dart-vim-plugin'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'nvim-treesitter/playground'
 Plug 'rlch/dart-vim-plugin'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'neovim/nvim-lspconfig'
@@ -15,6 +16,7 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'ray-x/lsp_signature.nvim'
+Plug 'yuezk/vim-js'
 
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'mfussenegger/nvim-dap'
@@ -118,6 +120,7 @@ luafile $HOME/.config/nvim/lua/plugins/dap.lua
 source $HOME/.config/nvim/plugins/dap.vim
 luafile $HOME/.config/nvim/lua/plugins/nvim-treesitter.lua
 luafile $HOME/.config/nvim/lua/plugins/diffview.lua
+luafile $HOME/.config/nvim/lua/plugins/telescope.lua
 
 set termguicolors
 source $HOME/.config/nvim/general/color-overrides.vim

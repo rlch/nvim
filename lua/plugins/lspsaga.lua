@@ -51,5 +51,10 @@ saga.init_lsp_saga {
     quit = '<esc>'
   },
   use_saga_diagnostic_sign = false,
-  code_action_icon = ''
+  code_action_icon = '',
+  code_action_prompt = {
+    enable = false,
+    sign = false,
+    virtual_text = false,
+  }
 }

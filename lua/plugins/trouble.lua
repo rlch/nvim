@@ -58,6 +58,6 @@ vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>",
 vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>",
   {silent = true, noremap = true}
 )
-vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>",
+--[[ vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>",
   {silent = true, noremap = true}
-)
+) ]]
