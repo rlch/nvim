@@ -121,6 +121,8 @@ source $HOME/.config/nvim/plugins/dap.vim
 luafile $HOME/.config/nvim/lua/plugins/nvim-treesitter.lua
 luafile $HOME/.config/nvim/lua/plugins/diffview.lua
 luafile $HOME/.config/nvim/lua/plugins/telescope.lua
+source $HOME/.config/nvim/plugins/spectre.vim
+luafile $HOME/.config/nvim/lua/plugins/spectre.lua
 
 set termguicolors
 source $HOME/.config/nvim/general/color-overrides.vim
