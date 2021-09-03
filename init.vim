@@ -69,6 +69,8 @@ Plug 'nvim-telescope/telescope.nvim'
 
 " GitHub
 " Plug 'pwntester/octo.nvim'
+Plug 'TimUntersberger/neogit'
+Plug 'sindrets/diffview.nvim'
 
 " Other
 Plug 'b3nj5m1n/kommentary'
@@ -78,7 +80,6 @@ Plug 'rlch/friendly-snippets'
 " Plug 'APZelos/blamer.nvim'
 Plug 'andweeb/presence.nvim'
 Plug 'tpope/vim-abolish'
-Plug 'sindrets/diffview.nvim'
 Plug 'windwp/nvim-spectre'
 
 call plug#end()
@@ -106,6 +107,7 @@ luafile $HOME/.config/nvim/lua/plugins/todo-comments.lua
 luafile $HOME/.config/nvim/lua/plugins/presence.lua
 
 " LSP
+luafile $HOME/.config/nvim/lua/plugins/diffview.lua
 luafile $HOME/.config/nvim/lua/plugins/luasnip.lua
 luafile $HOME/.config/nvim/lua/plugins/lsp-config.lua
 source $HOME/.config/nvim/plugins/vim-test.vim
@@ -119,7 +121,8 @@ luafile $HOME/.config/nvim/lua/plugins/lspsaga.lua
 luafile $HOME/.config/nvim/lua/plugins/dap.lua
 source $HOME/.config/nvim/plugins/dap.vim
 luafile $HOME/.config/nvim/lua/plugins/nvim-treesitter.lua
-luafile $HOME/.config/nvim/lua/plugins/diffview.lua
+luafile $HOME/.config/nvim/lua/plugins/neogit.lua
+source $HOME/.config/nvim/plugins/neogit.vim
 luafile $HOME/.config/nvim/lua/plugins/telescope.lua
 source $HOME/.config/nvim/plugins/spectre.vim
 luafile $HOME/.config/nvim/lua/plugins/spectre.lua

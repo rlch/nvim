@@ -6,6 +6,7 @@ nnoremap <silent> <leader>Fe :FlutterEmulators<CR>
 nnoremap <silent> <leader>Fr :FlutterReload<CR>
 nnoremap <silent> <leader>FR :FlutterRestart<CR>
 nnoremap <silent> <leader>Fq :FlutterQuit<CR>
+nnoremap <silent> <leader>FQ :FlutterQuit<CR>
 nnoremap <silent> <leader>tFo :FlutterOutlineToggle<CR>
 nnoremap <silent> <leader>Fo :FlutterOutlineOpen<CR>
 nnoremap <silent> <leader>Ft :FlutterDevTools<CR>

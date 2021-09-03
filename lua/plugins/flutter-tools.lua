@@ -71,7 +71,8 @@ require("flutter-tools").setup {
         vim.fn.expand("$HOME/flutter/.pub-cache"),
         vim.fn.expand("$HOME/flutter"),
         vim.fn.expand("$HOME/.pub-cache"),
-      }
+      },
+      lineLength = 100
     }
   }
 }
