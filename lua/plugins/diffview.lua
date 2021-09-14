@@ -14,7 +14,7 @@ require'diffview'.setup {
       ["<tab>"]     = cb("select_next_entry"),  -- Open the diff for the next file 
       ["<s-tab>"]   = cb("select_prev_entry"),  -- Open the diff for the previous file
       ["<leader>e"] = cb("focus_files"),        -- Bring focus to the files panel
-      ["<leader>b"] = cb("toggle_files"),       -- Toggle the files panel.
+      ["<leader>f"] = cb("toggle_files"),       -- Toggle the files panel.
     },
     file_panel = {
       ["j"]             = cb("next_entry"),         -- Bring the cursor to the next file entry
