@@ -8,8 +8,6 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   }
 }
 
-
-
 require("flutter-tools").setup {
   ui = {
     -- the border type to use for all floating windows, the same options/formats
