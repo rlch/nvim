@@ -1,6 +1,8 @@
 nnoremap <silent> <leader>Fa :FlutterRun<CR>
-nnoremap <silent> <leader>Fm :FlutterRun -d macos<CR>
-nnoremap <silent> <leader>FM :FlutterRun -d macos<CR>
+nnoremap <silent> <leader>Fm :FlutterRun -d macos --dart-define=env=debug<CR>
+nnoremap <silent> <leader>FM :FlutterRun -d macos --dart-define=env=debug<CR>
+nnoremap <silent> <leader>Fc :FlutterRun -d chrome --web-port=42069 --dart-define=env=debug<CR>
+nnoremap <silent> <leader>FC :FlutterRun -d chrome --web-port=42069 --dart-define=env=debug<CR>
 nnoremap <silent> <leader>Fd :FlutterDevices<CR>
 nnoremap <silent> <leader>Fe :FlutterEmulators<CR>
 nnoremap <silent> <leader>Fr :FlutterReload<CR>

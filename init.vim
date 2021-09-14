@@ -35,13 +35,12 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'hoob3rt/lualine.nvim'
-Plug 'rbgrouleff/bclose.vim'
 Plug 'mhinz/vim-startify'
 " Plug 'glepnir/dashboard-nvim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'mtdl9/vim-log-highlighting'
 
-Plug 'folke/trouble.nvim'
+" Plug 'folke/trouble.nvim'
 Plug 'folke/todo-comments.nvim'
 Plug 'folke/lsp-colors.nvim'
 
@@ -70,7 +69,7 @@ Plug 'nvim-telescope/telescope.nvim'
 " GitHub
 " Plug 'pwntester/octo.nvim'
 Plug 'TimUntersberger/neogit'
-Plug 'sindrets/diffview.nvim'
+" Plug 'sindrets/diffview.nvim'
 
 " Other
 Plug 'b3nj5m1n/kommentary'
@@ -81,6 +80,7 @@ Plug 'rlch/friendly-snippets'
 Plug 'andweeb/presence.nvim'
 Plug 'tpope/vim-abolish'
 Plug 'windwp/nvim-spectre'
+Plug 'folke/which-key.nvim'
 
 call plug#end()
 
@@ -102,12 +102,12 @@ source $HOME/.config/nvim/plugins/luasnip.vim
 luafile $HOME/.config/nvim/lua/plugins/kommentary.lua
 luafile $HOME/.config/nvim/lua/plugins/nvim-autopairs.lua
 luafile $HOME/.config/nvim/lua/plugins/lualine.lua
-luafile $HOME/.config/nvim/lua/plugins/trouble.lua
+" luafile $HOME/.config/nvim/lua/plugins/trouble.lua
 luafile $HOME/.config/nvim/lua/plugins/todo-comments.lua
 luafile $HOME/.config/nvim/lua/plugins/presence.lua
 
 " LSP
-luafile $HOME/.config/nvim/lua/plugins/diffview.lua
+" luafile $HOME/.config/nvim/lua/plugins/diffview.lua
 luafile $HOME/.config/nvim/lua/plugins/luasnip.lua
 luafile $HOME/.config/nvim/lua/plugins/lsp-config.lua
 source $HOME/.config/nvim/plugins/vim-test.vim
