@@ -1,7 +1,6 @@
 let g:fern#drawer_width = 35
 let g:fern#default_hidden = 1
 
-
 function! s:init_fern() abort
   nmap <buffer> H <Plug>(fern-action-open:split)
   nmap <buffer> V <Plug>(fern-action-open:vsplit)
@@ -14,9 +13,10 @@ function! s:init_fern() abort
   nmap <buffer> S <Plug>(fern-action-hidden-toggle)
   nmap <buffer> dd <Plug>(fern-action-trash)
 
-  nnoremap <silent> <Plug>(focus-fern) :Fern . -drawer <CR>
+  nnoremap <silent> <Plug>(focus-fern) :Fern . -drawer -reveal=% <CR>
   nnoremap <silent> <Plug>(toggle-fern) :Fern . -drawer -toggle -reveal=% <CR>
-  nmap <leader>e <Plug>(toggle-fern)<Plug>(fern-action-zoom:reset)
+  nmap <leader>e <Plug>(focus-fern)<Plug>(fern-action-zoom:reset)
+  nmap <leader>te <Plug>(toggle-fern)<Plug>(fern-action-zoom:reset)
 endfunction
 
 
@@ -32,8 +32,4 @@ let g:fern_git_status#disable_untracked = 1
 let g:fern_git_status#disable_submodules = 1
 
 
-nnoremap <silent> <Plug>(focus-fern) :Fern . -drawer -reveal=% <CR>
-nnoremap <silent> <Plug>(toggle-fern) :Fern . -drawer -toggle -reveal=% <CR>
-nmap <leader>e <Plug>(focus-fern)<Plug>(fern-action-zoom:reset)
-nmap <leader>te <Plug>(toggle-fern)<Plug>(fern-action-zoom:reset)
 

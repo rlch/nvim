@@ -47,6 +47,17 @@ function! SynStack()
 endfunc
 nmap <leader>gh :call SynStack()<CR>
 
+function! ReloadLspSaga()
+lua << EOF
+    for k in pairs(package.loaded) do 
+        if k:match("^lspsaga") then
+            package.loaded[k] = nil
+        end
+    end
+EOF
+endfunction" Reload the plugin
+nnoremap <leader>nr :call ReloadLspSaga()<CR>
+
 nnoremap <silent> <leader><leader> :noh<CR>
 " nnoremap <silent> <CR> :noh<CR><CR>
 
@@ -66,3 +77,5 @@ nnoremap <leader>k :m .-2<CR>==
 :command Wa wa
 :command QA qa
 :command Qa qa
+
+:tnoremap <Esc> <C-\><C-n>
