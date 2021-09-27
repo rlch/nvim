@@ -3,7 +3,6 @@ local cmd = vim.cmd
 local o_s = vim.o
 local map_key = vim.api.nvim_set_keymap
 
-
 local function opt(o, v, scopes)
   scopes = scopes or {o_s}
   for _, s in ipairs(scopes) do s[o] = v end
@@ -34,6 +33,7 @@ end
 require'autocmd'.setup()
 
 g.mapleader = [[ ]]
+g.camelcasemotion_key = '<leader>'
 
 opt('hidden', true)
 opt('encoding', 'utf-8')
@@ -52,7 +52,6 @@ opt('expandtab', true)
 opt('smartindent', true)
 opt('autoindent', true)
 opt('laststatus', 2)
-opt('cursorline', true)
 opt('background', 'dark')
 opt('updatetime', 300)
 opt('clipboard', 'unnamedplus')
@@ -66,8 +65,6 @@ vim.cmd([[
   set iskeyword+=-                      	" treat dash separated words as a word text object"
   set t_Co=256                            " Support 256 colors
   set nu rnu                              " Line numbers
-  set formatoptions-=cr                   " Enables comment completion
-  set nobackup
   set nowritebackup
   set noea
 
@@ -97,18 +94,28 @@ require('packer').startup(function(use)
     config = [[require('config.lsp-config')]]
   }
   use {
-    'hrsh7th/nvim-compe',
-    config = [[require('config.nvim-compe')]]
+    'hrsh7th/nvim-cmp',
+    config = [[require('config.nvim-compe')]],
+    requires = {
+      'windwp/nvim-autopairs',
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer'
+    }
   }
   use {
     'akinsho/flutter-tools.nvim',
     config = [[require('config.flutter-tools')]]
-}
+  }
   use {
     'glepnir/lspsaga.nvim',
     config = [[require('config.lspsaga')]]
   }
-  use 'L3MON4D3/LuaSnip'
+  use {
+    'L3MON4D3/LuaSnip',
+    config = [[require('config.luasnip')]]
+  }
   use 'ray-x/lsp_signature.nvim'
   use 'yuezk/vim-js'
   use 'rcarriga/nvim-dap-ui'
@@ -154,20 +161,14 @@ require('packer').startup(function(use)
 
   use {
     'windwp/nvim-autopairs',
-    setup = function() require'nvim-autopairs'.setup{} end
+    config = function() require('nvim-autopairs').setup{} end
   }
 
   -- File-tree
   use {
-    'lambdalisue/fern.vim',
-    setup = [[require('config.fern')]]
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons'
   }
-  use 'lambdalisue/fern-hijack.vim'
-  -- TODO: fix
-  -- use 'lambdalisue/fern-renderer-nerdfont.vim'
-  -- use 'lambdalisue/fern-git-status.vim'
-  use 'lambdalisue/nerdfont.vim'
-  use 'antoinemadec/FixCursorHold.nvim'
 
   -- Fuzzy finder
   use 'nvim-lua/popup.nvim'

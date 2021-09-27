@@ -4,6 +4,8 @@ local inoremap = require('nest')
 local snoremap = require('nest')
 local cnoremap = require('nest')
 local nmap = require('nest')
+local imap = require('nest')
+local vmap = require('nest')
 
 -- Defaults:
 --[[
@@ -24,6 +26,10 @@ snoremap.defaults.mode = 's'
 cnoremap.defaults.mode = 'c'
 nmap.defaults.mode = 'n'
 nmap.defaults.options = { noremap = false }
+imap.defaults.mode = 'i'
+imap.defaults.options = { noremap = false }
+vmap.defaults.mode = 'i'
+vmap.defaults.options = { noremap = false }
 
 noremap.applyKeymaps {
   -- { ';', ':', options = { silent = false } },
@@ -82,7 +88,6 @@ noremap.applyKeymaps {
       { 'i', '<cmd>lua vim.lsp.buf.implementation()<cr>' },
       { 'r', '<cmd>lua require("lspsaga.rename").rename()<cr>' }
     }},
-    { 'K', '<cmd>lua require("lspsaga.hover").render_hover_doc()<cr>' },
     { 'l', {
       { 'f', '<cmd>lua vim.lsp.buf.formatting()<cr>' }
     }},
@@ -103,59 +108,54 @@ noremap.applyKeymaps {
     }},
     { '<leader>', '<cmd>noh<cr><cr>' },
   }},
-  { 'H', '^', mode = 'nv' },
-  { 'L', '$', mode = 'nv' },
-  { 'Q', '@q' },
-  { 'Y', 'y$' },
-  { '<C-k>', '<C-p>' },
-  { '<C-j>', '<C-n>' },
   { '<C-f>', '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(1)<cr>' },
   { '<C-b>', '<cmd>lua require("lspsaga.action").smart_scroll_with_saga(-1)<cr>' },
 }
 
 vnoremap.applyKeymaps {
-  { 'J', ":m '>+1<cr>gv=gv" },
-  { 'K', ":m '<-2<cr>gv=gv" },
   { '<leader>' , {
     { 'a', '<cmd>C-U>lua require("lsp-fastaction").range_code_action()<cr>' },
     { 's', '<cmd>lua require("spectre").open_visual()<cr>' }
   }},
+  { 'J', ":m '>+1<cr>gv=gv" },
+  { 'K', ":m '<-2<cr>gv=gv" },
 }
 
-inoremap.applyKeymaps {
-  { options = { expr = true }, {
-    { '<C-a>', 'compe#complete()' },
-    { '<CR>', 'compe#confirm(luaeval("require "nvim-autopairs".autopairs_cr()"))' },
-    { '<C-e>', 'compe#close("<C-e>")' },
-    { '<C-f>', 'compe#scroll({ "delta": +4 })' },
-    { '<C-b>', 'compe#scroll({ "delta": -4 })' },
-    { '<C-j>', '("\\<C-n>")' },
-    { '<C-k>', '("\\<C-p>")' },
-    { '<S-Tab>', '<cmd>lua require"luasnip".jump(-1)<cr>', mode = 'is' }
-  }},
+--[[ inoremap.applyKeymaps {
   { options = { expr = true, noremap = false }, {
     { '<Tab>', 'luasnip#expand_or_jumpable() ? "<Plug>luasnip-expand-or-jump" : "<Tab>"' },
     { '<C-E>', 'luasnip#choice_active() ? "<Plug>luasnip-next-choice" : "<C-E>"', mode = 'is' },
   }}
-}
+} ]]
 
-snoremap.applyKeymaps {
+--[[ snoremap.applyKeymaps {
   { options = { expr = true }, {
     { '<Tab>', '<cmd>lua require"luasnip".jump(1)<cr>' },
   }}
-}
+} ]]
 
 cnoremap.applyKeymaps {
   { options = { expr = true }, {
     { '<C-k>', 'wildmenumode() ? "\\<C-p>" : "\\<C-k>"' },
-    { '<space>', 'wildmenumode() ? "\\<C-y>" : "\\<space>"' },
+    { '<space>', 'wildmenumode() ? "\\<C-y>" : "\\<space>"' }
   }}
 }
 
 nmap.applyKeymaps {
-  { 'gx', 'viW"ay:!open <C-R>a &<cr>' }
+  { 'gx', 'viW"ay:!open <C-R>a &<cr>' },
+  { 'K', '<cmd>lua require("lspsaga.hover").render_hover_doc()<cr>' },
+  { 'H', '^', mode = 'nv' },
+  { 'L', '$', mode = 'nv' },
+  { 'Q', '@q' },
+  { 'Y', 'y$' },
+  { '<C-k>', '<C-p>' },
+  { '<C-j>', '<C-n>' }
 }
 
+imap.applyKeymaps {
+  { '<C-j>', '("\\<C-n>")' },
+  { '<C-k>', '("\\<C-p>")' }
+}
 
 vim.api.nvim_command(':command WQ wq')
 vim.api.nvim_command(':command Wq wq')

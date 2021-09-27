@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/rjm/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/rjm/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/rjm/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/rjm/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/rjm/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/home/rjm/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?.lua;/home/rjm/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?/init.lua;/home/rjm/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?.lua;/home/rjm/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/rjm/.cache/nvim/packer_hererocks/2.0.5/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -71,203 +71,205 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   CamelCaseMotion = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/CamelCaseMotion"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/CamelCaseMotion"
   },
   LuaSnip = {
+    config = { "require('config.luasnip')" },
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/LuaSnip"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/LuaSnip"
+  },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/cmp-buffer"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp"
+  },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/cmp_luasnip"
   },
   ["dart-vim-plugin"] = {
     config = { "require('config.dart-vim-plugin')" },
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/dart-vim-plugin"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/dart-vim-plugin"
   },
   ["flutter-tools.nvim"] = {
     config = { "require('config.flutter-tools')" },
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/flutter-tools.nvim"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/flutter-tools.nvim"
   },
   ["friendly-snippets"] = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/friendly-snippets"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/friendly-snippets"
   },
   kommentary = {
     config = { "require('config.kommentary')" },
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/kommentary"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/kommentary"
   },
   ["lsp-fastaction.nvim"] = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/lsp-fastaction.nvim"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/lsp-fastaction.nvim"
   },
   ["lsp_signature.nvim"] = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim"
   },
   ["lspsaga.nvim"] = {
     config = { "require('config.lspsaga')" },
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
   },
   ["lualine.nvim"] = {
     config = { "require('config.lualine')" },
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/lualine.nvim"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/lualine.nvim"
   },
   neogit = {
     config = { "require('config.neogit')" },
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/neogit"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/neogit"
   },
   ["nest.nvim"] = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/nest.nvim"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/nest.nvim"
   },
   ["nord-vim"] = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/nord-vim"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/nord-vim"
   },
-  ["nvim-compe"] = {
+  ["nvim-autopairs"] = {
+    config = { "\27LJ\1\2@\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\19nvim-autopairs\frequire\0" },
+    loaded = true,
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
+  },
+  ["nvim-cmp"] = {
     config = { "require('config.nvim-compe')" },
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/nvim-compe"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/nvim-cmp"
   },
   ["nvim-dap"] = {
     config = { "require('config.dap')" },
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/nvim-dap"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/nvim-dap"
   },
   ["nvim-dap-ui"] = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/nvim-dap-ui"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/nvim-dap-ui"
   },
   ["nvim-lspconfig"] = {
     config = { "require('config.lsp-config')" },
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
   },
   ["nvim-spectre"] = {
-    config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\fspectre\frequire\0" },
+    config = { "\27LJ\1\0029\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\fspectre\frequire\0" },
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/nvim-spectre"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/nvim-spectre"
+  },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     config = { "require('config.nvim-treesitter')" },
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/packer.nvim"
   },
   playground = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/playground"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/playground"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/plenary.nvim"
   },
   ["popup.nvim"] = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/popup.nvim"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/popup.nvim"
   },
   ["tabout.nvim"] = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/tabout.nvim"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/tabout.nvim"
   },
   tabular = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/tabular"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/tabular"
   },
   ["telescope.nvim"] = {
-    config = { "\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14telescope\frequire\0" },
+    config = { "\27LJ\1\2;\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\14telescope\frequire\0" },
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/telescope.nvim"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/telescope.nvim"
   },
   ["vim-abolish"] = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/vim-abolish"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/vim-abolish"
   },
   ["vim-devicons"] = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/vim-devicons"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/vim-devicons"
   },
   ["vim-js"] = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/vim-js"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/vim-js"
   },
   ["vim-log-highlighting"] = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/vim-log-highlighting"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/vim-log-highlighting"
   },
   ["vim-markdown"] = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/vim-markdown"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/vim-markdown"
   },
   ["vim-surround"] = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/vim-surround"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/vim-surround"
   },
   ["vim-test"] = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/vim-test"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/vim-test"
   },
   ["vim-ultest"] = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/vim-ultest"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/vim-ultest"
   },
   ["which-key.nvim"] = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/which-key.nvim"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/which-key.nvim"
   },
   winresizer = {
     loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/winresizer"
+    path = "/home/rjm/.local/share/nvim/site/pack/packer/start/winresizer"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require('config.lsp-config')
-time([[Config for nvim-lspconfig]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require('config.lualine')
-time([[Config for lualine.nvim]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14telescope\frequire\0", "config", "telescope.nvim")
-time([[Config for telescope.nvim]], false)
--- Config for: dart-vim-plugin
-time([[Config for dart-vim-plugin]], true)
-require('config.dart-vim-plugin')
-time([[Config for dart-vim-plugin]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 require('config.nvim-treesitter')
 time([[Config for nvim-treesitter]], false)
--- Config for: flutter-tools.nvim
-time([[Config for flutter-tools.nvim]], true)
-require('config.flutter-tools')
-time([[Config for flutter-tools.nvim]], false)
--- Config for: lspsaga.nvim
-time([[Config for lspsaga.nvim]], true)
-require('config.lspsaga')
-time([[Config for lspsaga.nvim]], false)
--- Config for: nvim-compe
-time([[Config for nvim-compe]], true)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
 require('config.nvim-compe')
-time([[Config for nvim-compe]], false)
--- Config for: nvim-spectre
-time([[Config for nvim-spectre]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\fspectre\frequire\0", "config", "nvim-spectre")
-time([[Config for nvim-spectre]], false)
+time([[Config for nvim-cmp]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+try_loadstring("\27LJ\1\2;\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\14telescope\frequire\0", "config", "telescope.nvim")
+time([[Config for telescope.nvim]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require('config.lualine')
+time([[Config for lualine.nvim]], false)
 -- Config for: kommentary
 time([[Config for kommentary]], true)
 require('config.kommentary')
@@ -276,10 +278,38 @@ time([[Config for kommentary]], false)
 time([[Config for neogit]], true)
 require('config.neogit')
 time([[Config for neogit]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+require('config.luasnip')
+time([[Config for LuaSnip]], false)
 -- Config for: nvim-dap
 time([[Config for nvim-dap]], true)
 require('config.dap')
 time([[Config for nvim-dap]], false)
+-- Config for: dart-vim-plugin
+time([[Config for dart-vim-plugin]], true)
+require('config.dart-vim-plugin')
+time([[Config for dart-vim-plugin]], false)
+-- Config for: lspsaga.nvim
+time([[Config for lspsaga.nvim]], true)
+require('config.lspsaga')
+time([[Config for lspsaga.nvim]], false)
+-- Config for: nvim-spectre
+time([[Config for nvim-spectre]], true)
+try_loadstring("\27LJ\1\0029\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\fspectre\frequire\0", "config", "nvim-spectre")
+time([[Config for nvim-spectre]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require('config.lsp-config')
+time([[Config for nvim-lspconfig]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\1\2@\0\0\2\0\3\0\a4\0\0\0%\1\1\0>\0\2\0027\0\2\0002\1\0\0>\0\2\1G\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
+-- Config for: flutter-tools.nvim
+time([[Config for flutter-tools.nvim]], true)
+require('config.flutter-tools')
+time([[Config for flutter-tools.nvim]], false)
 if should_profile then save_profiles() end
 
 end)

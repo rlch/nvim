@@ -1,7 +1,13 @@
-USER = vim.fn.expand('$USER')
+HOME = vim.fn.expand('$HOME')
+local platform = ''
+if vim.fn.has('mac') == 1 then
+  platform = 'macOS'
+elseif vim.fn.has('unix') == 1 then
+  platform = 'Linux'
+end
 
-local sumneko_root_path = "/Users/" .. USER .. "/.config/lua-language-server"
-local sumneko_binary = "/Users/" .. USER .. "/.config/lua-language-server/bin/macOS/lua-language-server"
+local sumneko_root_path =  HOME .. "/.config/lua-language-server"
+local sumneko_binary = HOME .. "/.config/lua-language-server/bin/" .. platform .. "/lua-language-server"
 
 require 'lspconfig'.yamlls.setup{
   settings = {
@@ -57,12 +63,12 @@ require"lspconfig".efm.setup {
     settings = {
         rootMarkers = {".git/"},
         languages = {
-            --[[ lua = {
+            lua = {
                 {
                     formatCommand = "lua-format -i --no-keep-simple-function-one-line --no-break-after-operator --column-limit=150 --break-after-table-lb",
                     formatStdin = true
                 }
-            } ]]
+            }
         }
     }
 }
