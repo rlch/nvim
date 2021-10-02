@@ -9,7 +9,7 @@ require("dapui").setup({
     repl = "r",
   },
   sidebar = {
-    open_on_start = true,
+    -- open_on_start = ,
     -- You can change the order of elements in the sidebar
     elements = {
       -- Provide as ID strings or tables with "id" and "size" keys
@@ -25,7 +25,7 @@ require("dapui").setup({
     position = "left", -- Can be "left" or "right"
   },
   tray = {
-   open_on_start = false,
+   -- open_on_start = false,
     elements = {},
     size = 0,
     position = "bottom", -- Can be "bottom" or "top"
@@ -38,6 +38,6 @@ require("dapui").setup({
     },
   },
   windows = { indent = 1 },
-}) 
+})
 
 vim.fn.sign_define('DapBreakpoint', {text='●', texthl='LspDiagnosticsSignError'})

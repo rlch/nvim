@@ -1,4 +1,4 @@
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities.textDocument.completion.completionItem.resolveSupport = {
   properties = {
@@ -39,7 +39,7 @@ require("flutter-tools").setup {
     enabled = true -- set to false to disable
   },
   dev_log = {
-    open_cmd = "12new", -- command to use to open the log buffer
+    open_cmd = "14new", -- command to use to open the log buffer
     auto_open = true,
   },
   dev_tools = {
@@ -101,9 +101,10 @@ require('lsp-fastaction').setup({
             { pattern = 'wrap with sizedbox', key = 's', order = 3 },
             { pattern = 'wrap with container', key = 'C', order = 4 },
             { pattern = 'wrap with center', key = 'E', order = 4 },
-            { pattern = 'padding', key = 'P', order = 4 },
+            { pattern = 'padding', key = 'p', order = 4 },
+            { pattern = 'wrap with builder', key = 'b', order = 5 },
             { pattern = 'wrap with streambuilder', key = 'S', order = 5 },
-            { pattern = 'remove', key = 'R', order = 5 },
+            { pattern = 'remove', key = 'd', order = 5 },
 
             --range code action
             { pattern = "surround with %'if'", key = 'i', order = 2 },
@@ -117,3 +118,5 @@ require('lsp-fastaction').setup({
         },
     },
 })
+
+require'color-overrides'.setup()
