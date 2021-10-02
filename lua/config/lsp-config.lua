@@ -1,3 +1,5 @@
+local conf = require 'lspconfig'
+
 HOME = vim.fn.expand('$HOME')
 local platform = ''
 if vim.fn.has('mac') == 1 then
@@ -9,7 +11,7 @@ end
 local sumneko_root_path =  HOME .. "/.config/lua-language-server"
 local sumneko_binary = HOME .. "/.config/lua-language-server/bin/" .. platform .. "/lua-language-server"
 
-require 'lspconfig'.yamlls.setup{
+conf.yamlls.setup{
   settings = {
     yaml = {
       format = {
@@ -20,9 +22,9 @@ require 'lspconfig'.yamlls.setup{
   }
 }
 
-require 'lspconfig'.pyright.setup{}
+conf.pyright.setup{}
 
-require 'lspconfig'.jsonls.setup {
+conf.jsonls.setup {
     commands = {
       Format = {
         function()
@@ -32,10 +34,10 @@ require 'lspconfig'.jsonls.setup {
     }
 }
 
-require 'lspconfig'.tsserver.setup{}
+conf.tsserver.setup{}
 
 
-require'lspconfig'.sumneko_lua.setup {
+conf.sumneko_lua.setup {
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
     settings = {
         Lua = {
@@ -57,7 +59,7 @@ require'lspconfig'.sumneko_lua.setup {
     }
 }
 
-require"lspconfig".efm.setup {
+conf.efm.setup {
     init_options = {documentFormatting = true},
     filetypes = {"lua"},
     settings = {
@@ -71,5 +73,9 @@ require"lspconfig".efm.setup {
             }
         }
     }
+}
+
+conf.rust_analyzer.setup {
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
 

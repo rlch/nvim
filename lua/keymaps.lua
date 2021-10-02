@@ -152,7 +152,7 @@ nest.applyKeymaps {
     mode = 'c', options = { noremap = true, expr = true },
     {
       { '<C-k>', 'wildmenumode() ? "\\<C-p>" : "\\<C-k>"' },
-      { '<Space>', 'wildmenumode() ? "\\<C-y>" : "\\<Space>"' }
+      -- { '<Space>', 'wildmenumode() ? "\\<C-y>" : "\\<Space>"' }
     }
   },
   {
