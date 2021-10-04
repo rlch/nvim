@@ -72,6 +72,9 @@ nest.applyKeymaps {
         { 'm', {
           { 'p', '<cmd>MarkdownPreview<cr>' },
         }},
+        { 'r', {
+          { 'sb', '<cmd>RustStartStandaloneServerForBuffer<cr>' },
+        }},
         { 's', {
           { 'v', '<cmd>source $MYVIMRC<cr>' },
           { 'd', function()
