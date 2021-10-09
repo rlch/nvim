@@ -1,4 +1,11 @@
 local packer = nil
+
+local dev_dir = require'utils.platform-depend'{
+  macos = '~/Documents/Coding/Personal/',
+  linux = '~/Coding/Personal/',
+  windows = nil,
+}
+
 local function init()
   if packer == nil then
     packer = require 'packer'
@@ -56,7 +63,7 @@ local function init()
     requires = 'hrsh7th/nvim-cmp'
   }
   use {
-    '~/Documents/Coding/Personal/dependency-assist.nvim',
+    dev_dir .. 'dependency-assist.nvim',
     config = function() require'dependency_assist'.setup{} end
   }
   use {
@@ -79,6 +86,7 @@ local function init()
   use { 'rcarriga/vim-ultest', run = ':UpdateRemotePlugins' }
   use 'windwp/lsp-fastaction.nvim'
   use 'rlch/friendly-snippets'
+  use 'ckipp01/stylua-nvim'
 
   -- Markdown
   use 'godlygeek/tabular'
@@ -101,14 +109,6 @@ local function init()
 
   -- Aethetics
   use { 'rktjmp/lush.nvim' }
-  --[[ use {
-    '~/Documents/Coding/Personal/nord.nvim',
-    as = 'nord',
-    requires = { 'rktjmp/lush.nvim' },
-    config = function()
-      -- vim.cmd 'colorscheme nord'
-    end,
-  } ]]
   use {
     'norcalli/nvim-colorizer.lua',
     config = function ()
@@ -121,12 +121,6 @@ local function init()
     config = [[require('config.colorscheme')]]
   }
 
-  use {
-    '~/Documents/Coding/Personal/tokyonight.nvim',
-    -- as = 'color',
-    -- requires = { 'rktjmp/lush.nvim' },
-    -- config = [[require('config.colorscheme')]]
-  }
  use {
     'hoob3rt/lualine.nvim',
     config = [[require('config.lualine')]],
@@ -212,7 +206,7 @@ local function init()
 
   -- Dev
   use {
-    '~/Documents/Coding/Personal/github-notifications.nvim',
+    dev_dir .. 'github-notifications.nvim',
     config = function()
       -- require'github-notifications'.setup()
     end
