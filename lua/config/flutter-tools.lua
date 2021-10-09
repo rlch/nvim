@@ -34,7 +34,8 @@ require("flutter-tools").setup {
     enabled = false,
   },
   closing_tags = {
-    highlight = "FlutterClosingTag", -- highlight for the closing tag
+    -- highlight = "FlutterClosingTag", -- highlight for the closing tag
+    highlight = "Comment", -- highlight for the closing tag
     prefix = " ~ ", -- character to use for close tag e.g. > Widget
     enabled = true -- set to false to disable
   },
@@ -59,7 +60,7 @@ require("flutter-tools").setup {
     end, ]]
     capabilities = capabilities,
     on_attach = function(client, bufnr)
-      require "lsp_signature".setup({
+      --[[ require "lsp_signature".setup({
         bind = true,
         handler_opts = {
           border = "single"
@@ -68,7 +69,7 @@ require("flutter-tools").setup {
         doc_lines = 3,
         max_width = 100,
         -- use_lspsaga = true,
-      }, bufnr)
+      }, bufnr) ]]
     end,
     settings = {
       showTodos = true,
@@ -80,7 +81,7 @@ require("flutter-tools").setup {
         vim.fn.expand("$HOME/flutter"),
         vim.fn.expand("$HOME/.pub-cache"),
       },
-      lineLength = 100
+      lineLength = 120
     }
   }
 }

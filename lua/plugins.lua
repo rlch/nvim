@@ -21,17 +21,20 @@ local function init()
     config = [[require('config.nvim-treesitter')]]
   }
   use 'nvim-treesitter/playground'
+
   use {
     'rlch/dart-vim-plugin',
     config = [[require('config.dart-vim-plugin')]]
   }
+
   use {
     'neovim/nvim-lspconfig',
+    as = 'lspconfig',
     config = [[require('config.lsp-config')]],
-    after = 'nord',
   }
   use {
     'hrsh7th/nvim-cmp',
+    as = 'nvim-cmp',
     config = [[require('config.nvim-cmp')]],
     requires = {
       'saadparwaiz1/cmp_luasnip',
@@ -57,7 +60,8 @@ local function init()
     config = function() require'dependency_assist'.setup{} end
   }
   use {
-    'glepnir/lspsaga.nvim',
+    'tami5/lspsaga.nvim',
+    as = 'lspsaga',
     config = [[require('config.lspsaga')]]
   }
   use {
@@ -97,17 +101,36 @@ local function init()
 
   -- Aethetics
   use { 'rktjmp/lush.nvim' }
-  use {
+  --[[ use {
     '~/Documents/Coding/Personal/nord.nvim',
     as = 'nord',
     requires = { 'rktjmp/lush.nvim' },
     config = function()
       -- vim.cmd 'colorscheme nord'
     end,
+  } ]]
+  use {
+    'norcalli/nvim-colorizer.lua',
+    config = function ()
+      require'colorizer'.setup()
+    end
   }
   use {
+    'sainnhe/gruvbox-material',
+    as = 'color',
+    config = [[require('config.colorscheme')]]
+  }
+
+  use {
+    '~/Documents/Coding/Personal/tokyonight.nvim',
+    -- as = 'color',
+    -- requires = { 'rktjmp/lush.nvim' },
+    -- config = [[require('config.colorscheme')]]
+  }
+ use {
     'hoob3rt/lualine.nvim',
-    config = [[require('config.lualine')]]
+    config = [[require('config.lualine')]],
+    after = 'color',
   }
   --[[ use {
   --  'edkolev/tmuxline.vim',
@@ -131,7 +154,7 @@ local function init()
     },
     config = [[require('config.bufferline')]],
   }
-  use {
+  --[[ use {
     'aserowy/tmux.nvim',
     config = function()
       require 'tmux'.setup {
@@ -140,7 +163,7 @@ local function init()
         resize = { enable_default_keybindings = false },
       }
     end
-  }
+  } ]]
 
   use {
     'windwp/nvim-autopairs',
@@ -183,6 +206,15 @@ local function init()
     'LionC/nest.nvim',
     config = function()
       require'keymaps'
+    end
+  }
+
+
+  -- Dev
+  use {
+    '~/Documents/Coding/Personal/github-notifications.nvim',
+    config = function()
+      -- require'github-notifications'.setup()
     end
   }
 end

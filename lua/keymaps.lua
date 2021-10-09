@@ -77,17 +77,9 @@ nest.applyKeymaps {
         }},
         { 's', {
           { 'v', '<cmd>source $MYVIMRC<cr>' },
-          { 'd', function()
-              for k in pairs(package.loaded) do
-                if k:match("^dependency_assist") then
-                  package.loaded[k] = nil
-                end
-              end
-            end
-          },
+          { 'g', '<cmd>lua require("utils.refresh-package").refresh_ghn()<cr>' },
           { 'w', '<cmd>lua require("spectre").open_visual({select_word=true})<cr>' },
         }},
-        { 'S', '<cmd>lua require("spectre").open()<cr>' },
         { 't', {
           { 'o', '<cmd>NvimTreeToggle<CR>' },
           { 'd', '<Plug>(ultest-debug-nearest)<CR>' },
@@ -170,6 +162,7 @@ nest.applyKeymaps {
       { 'L', '$', mode = 'nv' },
       { 'Q', '@q' },
       { 'Y', 'y$' },
+      { 'S', '<cmd>lua require("spectre").open()<cr>' },
       { '<C-k>', '<C-p>' },
       { '<C-j>', '<C-n>' },
     }
@@ -178,8 +171,8 @@ nest.applyKeymaps {
     mode = 'i', options = { noremap = true },
     {
       options = { expr = true },
-      { '<C-j>', 'pumvisible() ? "\\<C-n>" : "\\<C-j>"' },
-      { '<C-k>', 'pumvisible() ? "\\<C-p>" : "\\<C-k>"' },
+      { '<C-j>', 'pumvisible() ? "<C-n>" : "<C-j>"' },
+      { '<C-k>', 'pumvisible() ? "<C-p>" : "<C-k>"' },
     }
   },
 
