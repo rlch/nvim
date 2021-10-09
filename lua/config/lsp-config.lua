@@ -39,6 +39,13 @@ conf.tsserver.setup{}
 
 conf.sumneko_lua.setup {
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
+    commands = {
+      Format = {
+        function()
+          require'stylua-nvim'.format_file()
+        end
+      },
+    },
     settings = {
         Lua = {
             runtime = {
@@ -59,7 +66,7 @@ conf.sumneko_lua.setup {
     }
 }
 
-conf.efm.setup {
+--[[ conf.efm.setup {
     init_options = {documentFormatting = true},
     filetypes = {"lua"},
     settings = {
@@ -73,7 +80,7 @@ conf.efm.setup {
             }
         }
     }
-}
+} ]]
 
 --[[ conf.rust_analyzer.setup {
   capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())

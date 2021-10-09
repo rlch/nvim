@@ -67,7 +67,7 @@ nest.applyKeymaps {
             { 'd', '<cmd>AddDevDependency<CR>' },
             { 'u', '<cmd>UpdateDependencyLine<CR>' },
           }},
-          { 'f', '<cmd>lua vim.lsp.buf.formatting()<cr>' }
+          { 'f', '<cmd>Format<cr><cmd>lua vim.lsp.buf.formatting()<cr>' },
         }},
         { 'm', {
           { 'p', '<cmd>MarkdownPreview<cr>' },
@@ -168,11 +168,11 @@ nest.applyKeymaps {
     }
   },
   {
-    mode = 'i', options = { noremap = true },
+    mode = 'i', options = { noremap = false },
     {
       options = { expr = true },
-      { '<C-j>', 'pumvisible() ? "<C-n>" : "<C-j>"' },
-      { '<C-k>', 'pumvisible() ? "<C-p>" : "<C-k>"' },
+      { '<C-j>', 'pumvisible() ? "\\<Down>" : "\\<C-j>"' },
+      { '<C-k>', 'pumvisible() ? "\\<Up>" : "\\<C-k>"' },
     }
   },
 
