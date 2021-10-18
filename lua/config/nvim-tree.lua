@@ -2,7 +2,7 @@ local g = vim.g
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
 require'nvim-tree'.setup {
-  lsp_diagnostics = false,
+  diagnostics = { enable = false },
   auto_close = false,
   view = {
     auto_resize = true,
