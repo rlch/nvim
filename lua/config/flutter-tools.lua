@@ -28,8 +28,9 @@ require("flutter-tools").setup({
 	debugger = { -- integrate with nvim dap + install dart code debugger
 		enabled = true,
 	},
-	-- flutter_path = "<full/path/if/needed>", -- <-- this takes priority over the lookup
-	-- flutter_lookup_cmd = nil, -- example "dirname $(which flutter)" or "asdf where flutter"
+  fvm = true,
+	-- flutter_path = "$HOME/fvm/default/bin/flutter", -- <-- this takes priority over the lookup
+	-- flutter_lookup_cmd = '', -- example "dirname $(which flutter)" or "asdf where flutter"
 	widget_guides = {
 		enabled = false,
 	},
