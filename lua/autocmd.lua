@@ -1,5 +1,6 @@
 return {
   setup = function()
+    --- TODO: am i dumb?
     vim.cmd([[ 
       augroup pac>ker_user_config
         autocmd!
