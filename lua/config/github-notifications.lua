@@ -1,7 +1,6 @@
-local secrets = require 'secrets'
+require('telescope').load_extension 'ghn'
 
 require('github-notifications').setup {
-	username = secrets.username,
-	token = secrets.token,
+  cache = false,
+  debounce_duration = 30,
 }
-require('telescope').load_extension 'ghn'
