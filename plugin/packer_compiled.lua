@@ -79,18 +79,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/LuaSnip"
   },
-  ["bufdelete.nvim"] = {
-    loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/bufdelete.nvim"
-  },
-  ["bufferline.nvim"] = {
-    config = { "require('config.bufferline')" },
-    loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/bufferline.nvim"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/cmp-buffer"
+  },
+  ["cmp-git"] = {
+    loaded = true,
+    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/cmp-git"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
@@ -114,11 +109,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/dart-vim-plugin"
   },
-  ["dependency-assist.nvim"] = {
-    config = { "\27LJ\2\nC\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\22dependency_assist\frequire\0" },
-    loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/dependency-assist.nvim"
-  },
   ["flutter-tools.nvim"] = {
     config = { "require('config.flutter-tools')" },
     loaded = true,
@@ -132,6 +122,11 @@ _G.packer_plugins = {
     config = { "require('config.github-notifications')" },
     loaded = true,
     path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/github-notifications.nvim"
+  },
+  ["gitsigns.nvim"] = {
+    config = { "require('config.gitsigns')" },
+    loaded = true,
+    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
   },
   kommentary = {
     config = { "require('config.kommentary')" },
@@ -150,6 +145,10 @@ _G.packer_plugins = {
     config = { "require('config.lsp-config')" },
     loaded = true,
     path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/lspconfig"
+  },
+  ["lspkind-nvim"] = {
+    loaded = true,
+    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/lspkind-nvim"
   },
   lspsaga = {
     config = { "require('config.lspsaga')" },
@@ -170,6 +169,7 @@ _G.packer_plugins = {
   ["markdown-preview.nvim"] = {
     loaded = false,
     needs_bufread = false,
+    only_cond = false,
     path = "/Users/rjm/.local/share/nvim/site/pack/packer/opt/markdown-preview.nvim"
   },
   neorg = {
@@ -217,10 +217,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
-  ["nvim-web-devicons"] = {
-    loaded = true,
-    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/packer.nvim"
@@ -236,6 +232,11 @@ _G.packer_plugins = {
   ["popup.nvim"] = {
     loaded = true,
     path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/popup.nvim"
+  },
+  ["project.nvim"] = {
+    config = { "require('config.project')" },
+    loaded = true,
+    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/project.nvim"
   },
   ["stylua-nvim"] = {
     loaded = true,
@@ -314,50 +315,30 @@ time([[Defining packer_plugins]], false)
 time([[Setup for markdown-preview.nvim]], true)
 try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rmarkdown\19mkdp_filetypes\6g\bvim\0", "setup", "markdown-preview.nvim")
 time([[Setup for markdown-preview.nvim]], false)
--- Config for: treesitter
-time([[Config for treesitter]], true)
-require('config.nvim-treesitter')
-time([[Config for treesitter]], false)
--- Config for: dart-vim-plugin
-time([[Config for dart-vim-plugin]], true)
-require('config.dart-vim-plugin')
-time([[Config for dart-vim-plugin]], false)
--- Config for: dependency-assist.nvim
-time([[Config for dependency-assist.nvim]], true)
-try_loadstring("\27LJ\2\nC\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\22dependency_assist\frequire\0", "config", "dependency-assist.nvim")
-time([[Config for dependency-assist.nvim]], false)
--- Config for: flutter-tools.nvim
-time([[Config for flutter-tools.nvim]], true)
-require('config.flutter-tools')
-time([[Config for flutter-tools.nvim]], false)
--- Config for: CamelCaseMotion
-time([[Config for CamelCaseMotion]], true)
-require('config.camelcasemotion')
-time([[Config for CamelCaseMotion]], false)
--- Config for: github-notifications.nvim
-time([[Config for github-notifications.nvim]], true)
-require('config.github-notifications')
-time([[Config for github-notifications.nvim]], false)
--- Config for: nvim-cmp
-time([[Config for nvim-cmp]], true)
-require('config.nvim-cmp')
-time([[Config for nvim-cmp]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require('config.gitsigns')
+time([[Config for gitsigns.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
 -- Config for: kommentary
 time([[Config for kommentary]], true)
 require('config.kommentary')
 time([[Config for kommentary]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+require('config.nvim-cmp')
+time([[Config for nvim-cmp]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+require('config.telescope')
+time([[Config for telescope.nvim]], false)
 -- Config for: nvim-dap
 time([[Config for nvim-dap]], true)
 require('config.dap')
 time([[Config for nvim-dap]], false)
--- Config for: bufferline.nvim
-time([[Config for bufferline.nvim]], true)
-require('config.bufferline')
-time([[Config for bufferline.nvim]], false)
--- Config for: nest.nvim
-time([[Config for nest.nvim]], true)
-try_loadstring("\27LJ\2\n'\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\fkeymaps\frequire\0", "config", "nest.nvim")
-time([[Config for nest.nvim]], false)
 -- Config for: lspconfig
 time([[Config for lspconfig]], true)
 require('config.lsp-config')
@@ -366,10 +347,6 @@ time([[Config for lspconfig]], false)
 time([[Config for nvim-spectre]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\fspectre\frequire\0", "config", "nvim-spectre")
 time([[Config for nvim-spectre]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-require('config.luasnip')
-time([[Config for LuaSnip]], false)
 -- Config for: lspsaga
 time([[Config for lspsaga]], true)
 require('config.lspsaga')
@@ -378,29 +355,53 @@ time([[Config for lspsaga]], false)
 time([[Config for nvim-tree.lua]], true)
 require('config.nvim-tree')
 time([[Config for nvim-tree.lua]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-require('config.telescope')
-time([[Config for telescope.nvim]], false)
+-- Config for: dart-vim-plugin
+time([[Config for dart-vim-plugin]], true)
+require('config.dart-vim-plugin')
+time([[Config for dart-vim-plugin]], false)
+-- Config for: flutter-tools.nvim
+time([[Config for flutter-tools.nvim]], true)
+require('config.flutter-tools')
+time([[Config for flutter-tools.nvim]], false)
+-- Config for: treesitter
+time([[Config for treesitter]], true)
+require('config.nvim-treesitter')
+time([[Config for treesitter]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+require('config.luasnip')
+time([[Config for LuaSnip]], false)
+-- Config for: CamelCaseMotion
+time([[Config for CamelCaseMotion]], true)
+require('config.camelcasemotion')
+time([[Config for CamelCaseMotion]], false)
+-- Config for: project.nvim
+time([[Config for project.nvim]], true)
+require('config.project')
+time([[Config for project.nvim]], false)
+-- Config for: github-notifications.nvim
+time([[Config for github-notifications.nvim]], true)
+require('config.github-notifications')
+time([[Config for github-notifications.nvim]], false)
+-- Config for: nest.nvim
+time([[Config for nest.nvim]], true)
+try_loadstring("\27LJ\2\n'\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\fkeymaps\frequire\0", "config", "nest.nvim")
+time([[Config for nest.nvim]], false)
 -- Config for: color
 time([[Config for color]], true)
 require('config.colorscheme')
 time([[Config for color]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
-vim.cmd [[ packadd lualine.nvim ]]
-
--- Config for: lualine.nvim
-require('config.lualine')
-
 vim.cmd [[ packadd neorg ]]
 
 -- Config for: neorg
 require('config.neorg')
+
+vim.cmd [[ packadd lualine.nvim ]]
+
+-- Config for: lualine.nvim
+require('config.lualine')
 
 time([[Sequenced loading]], false)
 vim.cmd [[augroup packer_load_aucmds]]

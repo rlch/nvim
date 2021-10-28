@@ -16,7 +16,7 @@ end
 require('plenary.reload').reload_module('lualine', true)
 require('lualine').setup {
   options = {
-    theme = 'gruvbox_material',
+    theme = 'gruvbox-material',
     icons_enabled = true,
     --[[ component_separators = {'', ''},
     section_separators = {'', ''}, ]]
