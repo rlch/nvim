@@ -65,6 +65,7 @@ vim.cmd [[
   set nu rnu
   set nowritebackup
   set noea
+  filetype plugin on
 ]]
 cmd [[command! PackerInstall packadd packer.nvim | lua require('plugins').install()]]
 cmd [[command! PackerUpdate packadd packer.nvim | lua require('plugins').update()]]
