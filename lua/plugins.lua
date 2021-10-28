@@ -26,7 +26,7 @@ local function init()
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = [[require('config.nvim-treesitter')]],
-    as = 'treesitter'
+    as = 'treesitter',
   }
   use 'nvim-treesitter/playground'
   use {
@@ -56,9 +56,11 @@ local function init()
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
+      'petertriho/cmp-git',
       'neovim/nvim-lspconfig',
       'L3MON4D3/LuaSnip',
       'windwp/nvim-autopairs',
+      'onsails/lspkind-nvim',
     },
     --[[ after = {
       'L3MON4D3/LuaSnip',
@@ -76,10 +78,11 @@ local function init()
     requires = 'hrsh7th/nvim-cmp',
   }
   use {
-    dev_dir .. 'dependency-assist.nvim',
+    'akinsho/dependency-assist.nvim',
     config = function()
       require('dependency_assist').setup {}
     end,
+    disable = true,
   }
   use {
     'tami5/lspsaga.nvim',
@@ -141,7 +144,7 @@ local function init()
   }
 
   use {
-    'hoob3rt/lualine.nvim',
+    'nvim-lualine/lualine.nvim',
     config = [[require('config.lualine')]],
     after = 'color',
   }
@@ -166,6 +169,7 @@ local function init()
       'famiu/bufdelete.nvim',
     },
     config = [[require('config.bufferline')]],
+    disable = true,
   }
   --[[ use {
     'aserowy/tmux.nvim',
@@ -206,6 +210,13 @@ local function init()
     config = [[require('config.neogit')]],
     disable = true,
   }
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+    },
+    config = [[require('config.gitsigns')]],
+  }
 
   -- Miscellaneous
   use {
@@ -230,7 +241,14 @@ local function init()
     'nvim-neorg/neorg',
     config = [[require('config.neorg')]],
     requires = 'nvim-lua/plenary.nvim',
-    after = 'treesitter'
+    after = 'treesitter',
+  }
+  use {
+    dev_dir .. 'project.nvim',
+    config = [[require('config.project')]],
+    requires = {
+      'nvim-telescope/telescope.nvim',
+    },
   }
 
   -- Dev
@@ -239,7 +257,7 @@ local function init()
     config = [[require('config.github-notifications')]],
     requires = {
       'nvim-lua/plenary.nvim',
-      'hoob3rt/lualine.nvim',
+      'nvim-lualine/lualine.nvim',
       'nvim-telescope/telescope.nvim',
     },
   }
