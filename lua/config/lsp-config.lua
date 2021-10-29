@@ -11,6 +11,12 @@ end
 local sumneko_root_path = HOME .. '/.config/lua-language-server'
 local sumneko_binary = HOME .. '/.config/lua-language-server/bin/' .. platform .. '/lua-language-server'
 
+--[[ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    update_in_insert = true,
+  }
+) ]]
+
 conf.yamlls.setup {
 	settings = {
 		yaml = {
