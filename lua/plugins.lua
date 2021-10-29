@@ -15,6 +15,7 @@ local function init()
   local use = packer.use
   packer.reset()
 
+
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
@@ -106,6 +107,7 @@ local function init()
   use 'rlch/friendly-snippets'
   use 'ckipp01/stylua-nvim'
   use 'delphinus/vim-firestore'
+  use 'github/copilot.vim'
 
   -- Markdown
   use 'godlygeek/tabular'
@@ -249,6 +251,12 @@ local function init()
     requires = {
       'nvim-telescope/telescope.nvim',
     },
+  }
+  use {
+    'luukvbaal/stabilize.nvim',
+    config = function()
+      require('stabilize').setup()
+    end,
   }
 
   -- Dev
