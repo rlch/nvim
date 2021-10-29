@@ -124,6 +124,7 @@ nest.applyKeymaps {
           } },
           { 'nl', '<cmd>lua vim.cmd("edit " .. vim.lsp.get_log_path())<CR>' },
           { 'r', {
+            { 'o', '<cmd>NvimTreeToggle<CR><cmd>NvimTreeToggle<CR>' },
             { 'sb', '<cmd>RustStartStandaloneServerForBuffer<cr>' },
           } },
           {
