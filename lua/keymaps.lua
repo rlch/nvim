@@ -1,5 +1,7 @@
 local nest = require 'nest'
 nest.applyKeymaps {
+  { mode = 'n', options = { noremap = true }, { ';', ':' } },
+  { mode = 'v', options = { noremap = true }, { ';', ':' } },
   {
     mode = 'n',
     options = { noremap = true },
@@ -11,7 +13,7 @@ nest.applyKeymaps {
           { 'd', '<cmd>lua vim.lsp.buf.definition()<cr>' },
           { 'D', '<cmd>lua vim.lsp.buf.declaration()<cr>' },
           { 'i', '<cmd>lua vim.lsp.buf.implementation()<cr>' },
-          { 'r', '<cmd>lua require("lspsaga.rename").rename()<cr>' },
+          { 'r', '<cmd>lua require("renamer").rename()<cr>' },
         },
         options = { silent = true },
       },
@@ -49,6 +51,7 @@ nest.applyKeymaps {
             'f',
             {
               { 'b', '<cmd>lua require("telescope.builtin").buffers()<cr>' },
+              { 'c', '<cmd>Telescope neoclip<CR>' },
               { 'd', '<cmd>lua require("telescope.builtin").lsp_workspace_diagnostics()<cr>' },
               { 'f', '<cmd>lua require("telescope.builtin").find_files()<cr>' },
               { 'F', '<cmd>lua require("telescope").extensions.flutter.commands()<cr>' },
@@ -246,29 +249,3 @@ nest.applyKeymaps {
   },
 }
 
---[[ inoremap.applyKeymaps {
-  { options = { expr = true, noremap = false }, {
-    { '<Tab>', 'luasnip#expand_or_jumpable() ? "<Plug>luasnip-expand-or-jump" : "<Tab>"' },
-    { '<C-E>', 'luasnip#choice_active() ? "<Plug>luasnip-next-choice" : "<C-E>"', mode = 'is' },
-  }}
-} ]]
-
---[[ snoremap.applyKeymaps {
-  { options = { expr = true }, {
-    { '<Tab>', '<cmd>lua require"luasnip".jump(1)<cr>' },
-  }}
-} ]]
-
--- TODO: migrate
-
---[[ function! ReloadLspSaga()
-lua << EOF
-for k in pairs(package.loaded) do
-if k:match("^lspsaga") then
-package.loaded[k] = nil
-end
-end
-EOF
-endfunction" Reload the plugin
-nnoremap <leader>nr :call ReloadLspSaga()<CR> ]]
--- :tnoremap <Esc> <C-\><C-n>
