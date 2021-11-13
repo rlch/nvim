@@ -66,8 +66,6 @@ vim.cmd [[
   set nowritebackup
   set noea
   filetype plugin on
-  imap <silent><script><expr> <C-l> copilot#Accept("\<C-l>")
-  let g:copilot_no_tab_map = v:true
 ]]
 cmd [[command! PackerInstall packadd packer.nvim | lua require('plugins').install()]]
 cmd [[command! PackerUpdate packadd packer.nvim | lua require('plugins').update()]]
