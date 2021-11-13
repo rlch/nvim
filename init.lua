@@ -66,6 +66,8 @@ vim.cmd [[
   set nowritebackup
   set noea
   filetype plugin on
+  imap <silent><script><expr> <C-l> copilot#Accept("\<C-l>")
+  let g:copilot_no_tab_map = v:true
 ]]
 cmd [[command! PackerInstall packadd packer.nvim | lua require('plugins').install()]]
 cmd [[command! PackerUpdate packadd packer.nvim | lua require('plugins').update()]]
@@ -81,6 +83,9 @@ nvim_cmd ':command! WA wa'
 nvim_cmd ':command! Wa wa'
 nvim_cmd ':command! QA qa'
 nvim_cmd ':command! Qa qa'
+nvim_cmd ':command! WQa wqa'
+nvim_cmd ':command! Wqa wqa'
+nvim_cmd ':command! WQA wqa'
 
 vim.g.termguicolors = true
 vim.opt.termguicolors = true
