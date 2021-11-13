@@ -2,7 +2,7 @@ return {
   setup = function()
     --- TODO: am i dumb?
     vim.cmd([[ 
-      augroup pac>ker_user_config
+      augroup packer_user_config
         autocmd!
         autocmd BufWritePost plugins.lua so % | PackerCompile
       augroup end

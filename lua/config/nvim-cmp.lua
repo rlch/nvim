@@ -1,6 +1,11 @@
+local api = vim.api
 local cmp = require 'cmp'
 local lspkind = require 'lspkind'
 local luasnip = require 'luasnip'
+
+local function t(str)
+  return api.nvim_replace_termcodes(str, true, true, true)
+end
 
 local source_mapping = {
   buffer = '[Buffer]',
@@ -8,6 +13,10 @@ local source_mapping = {
   nvim_lua = '[Lua]',
   path = '[Path]',
 }
+
+local function feed(key, mode)
+  api.nvim_feedkeys(t(key), mode or '', true)
+end
 
 vim.o.completeopt = 'menu,menuone,noselect'
 
@@ -20,33 +29,35 @@ cmp.setup {
   mapping = {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-a>'] = cmp.mapping.complete(),
+    ['<C-i>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm { select = true },
+    ['<C-n>'] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+    ['<C-p>'] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
     ['<Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
+      if luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
-      else
+      elseif api.nvim_get_mode().mode == 'c' then
         fallback()
+      else
+        feed '<Plug>(Tabout)'
       end
     end, {
       'i',
-      's',
+      'c',
     }),
 
     ['<S-Tab>'] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
+      if luasnip.jumpable(-1) then
         luasnip.jump(-1)
-      else
+      elseif api.nvim_get_mode().mode == 'c' then
         fallback()
+      else
+        feed '<Plug>(TaboutBack)'
       end
     end, {
       'i',
-      's',
+      'c',
     }),
   },
   sources = {

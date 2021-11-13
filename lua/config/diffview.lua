@@ -29,8 +29,8 @@ require'diffview'.setup {
       ["U"]             = cb("unstage_all"),        -- Unstage all entries.
       ["X"]             = cb("restore_entry"),      -- Restore entry to the state on the left side.
       ["R"]             = cb("refresh_files"),      -- Update stats and entries in the file list.
-      ["<tab>"]         = cb("select_next_entry"),
-      ["<s-tab>"]       = cb("select_prev_entry"),
+      --[[ ["<tab>"]         = cb("select_next_entry"),
+      ["<s-tab>"]       = cb("select_prev_entry"), ]]
       ["<leader>e"]     = cb("focus_files"),
       ["<leader>b"]     = cb("toggle_files"),
     }
