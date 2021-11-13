@@ -81,6 +81,12 @@ _G.packer_plugins = {
     path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["auto-session"] = {
+    config = { "\27LJ\2\n«\1\0\0\t\0\v\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\t\0'\3\3\0\18\5\3\0009\3\4\0036\6\5\0009\6\6\0069\6\a\6'\b\b\0B\6\2\0A\3\1\2=\3\n\2B\0\2\1K\0\1\0\26auto_session_root_dir\1\0\0\tdata\fstdpath\afn\bvim\vformat\21%s/session/auto/\nsetup\17auto-session\frequire\0" },
+    loaded = true,
+    path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/auto-session",
+    url = "https://github.com/rmagatti/auto-session"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -366,6 +372,15 @@ _G.packer_plugins = {
     path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/vim-pandoc-syntax",
     url = "https://github.com/vim-pandoc/vim-pandoc-syntax"
   },
+  ["vim-startuptime"] = {
+    commands = { "StartupTime" },
+    config = { "\27LJ\2\n|\0\0\2\0\5\0\t6\0\0\0009\0\1\0)\1\15\0=\1\2\0006\0\0\0009\0\1\0005\1\4\0=\1\3\0K\0\1\0\1\2\0\0$+let g:auto_session_enabled = 0\25startuptime_exe_args\22startuptime_tries\6g\bvim\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/rjm/.local/share/nvim/site/pack/packer/opt/vim-startuptime",
+    url = "https://github.com/dstein64/vim-startuptime"
+  },
   ["vim-surround"] = {
     loaded = true,
     path = "/Users/rjm/.local/share/nvim/site/pack/packer/start/vim-surround",
@@ -398,46 +413,14 @@ time([[Defining packer_plugins]], false)
 time([[Setup for markdown-preview.nvim]], true)
 try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rmarkdown\19mkdp_filetypes\6g\bvim\0", "setup", "markdown-preview.nvim")
 time([[Setup for markdown-preview.nvim]], false)
--- Config for: project.nvim
-time([[Config for project.nvim]], true)
-require('config.project')
-time([[Config for project.nvim]], false)
--- Config for: treesitter
-time([[Config for treesitter]], true)
-require('config.nvim-treesitter')
-time([[Config for treesitter]], false)
--- Config for: renamer.nvim
-time([[Config for renamer.nvim]], true)
-require('config.renamer')
-time([[Config for renamer.nvim]], false)
--- Config for: copilot.vim
-time([[Config for copilot.vim]], true)
-require('config.copilot')
-time([[Config for copilot.vim]], false)
--- Config for: nvim-neoclip.lua
-time([[Config for nvim-neoclip.lua]], true)
-try_loadstring("\27LJ\2\nf\0\0\3\0\5\0\f6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\3\0B\0\2\0029\0\4\0'\2\1\0B\0\2\1K\0\1\0\19load_extension\14telescope\nsetup\fneoclip\frequire\0", "config", "nvim-neoclip.lua")
-time([[Config for nvim-neoclip.lua]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
 -- Config for: CamelCaseMotion
 time([[Config for CamelCaseMotion]], true)
 require('config.camelcasemotion')
 time([[Config for CamelCaseMotion]], false)
--- Config for: nvim-spectre
-time([[Config for nvim-spectre]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\fspectre\frequire\0", "config", "nvim-spectre")
-time([[Config for nvim-spectre]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-require('config.luasnip')
-time([[Config for LuaSnip]], false)
--- Config for: nvim-tree.lua
-time([[Config for nvim-tree.lua]], true)
-require('config.nvim-tree')
-time([[Config for nvim-tree.lua]], false)
--- Config for: color
-time([[Config for color]], true)
-require('config.colorscheme')
-time([[Config for color]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require('config.nvim-cmp')
@@ -446,10 +429,46 @@ time([[Config for nvim-cmp]], false)
 time([[Config for flutter-tools.nvim]], true)
 require('config.flutter-tools')
 time([[Config for flutter-tools.nvim]], false)
--- Config for: nest.nvim
-time([[Config for nest.nvim]], true)
-try_loadstring("\27LJ\2\n'\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\fkeymaps\frequire\0", "config", "nest.nvim")
-time([[Config for nest.nvim]], false)
+-- Config for: nvim-dap
+time([[Config for nvim-dap]], true)
+require('config.dap')
+time([[Config for nvim-dap]], false)
+-- Config for: lspsaga
+time([[Config for lspsaga]], true)
+require('config.lspsaga')
+time([[Config for lspsaga]], false)
+-- Config for: project.nvim
+time([[Config for project.nvim]], true)
+require('config.project')
+time([[Config for project.nvim]], false)
+-- Config for: github-notifications.nvim
+time([[Config for github-notifications.nvim]], true)
+require('config.github-notifications')
+time([[Config for github-notifications.nvim]], false)
+-- Config for: renamer.nvim
+time([[Config for renamer.nvim]], true)
+require('config.renamer')
+time([[Config for renamer.nvim]], false)
+-- Config for: nvim-tree.lua
+time([[Config for nvim-tree.lua]], true)
+require('config.nvim-tree')
+time([[Config for nvim-tree.lua]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+require('config.gitsigns')
+time([[Config for gitsigns.nvim]], false)
+-- Config for: stabilize.nvim
+time([[Config for stabilize.nvim]], true)
+try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14stabilize\frequire\0", "config", "stabilize.nvim")
+time([[Config for stabilize.nvim]], false)
+-- Config for: nvim-spectre
+time([[Config for nvim-spectre]], true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\fspectre\frequire\0", "config", "nvim-spectre")
+time([[Config for nvim-spectre]], false)
+-- Config for: auto-session
+time([[Config for auto-session]], true)
+try_loadstring("\27LJ\2\n«\1\0\0\t\0\v\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\t\0'\3\3\0\18\5\3\0009\3\4\0036\6\5\0009\6\6\0069\6\a\6'\b\b\0B\6\2\0A\3\1\2=\3\n\2B\0\2\1K\0\1\0\26auto_session_root_dir\1\0\0\tdata\fstdpath\afn\bvim\vformat\21%s/session/auto/\nsetup\17auto-session\frequire\0", "config", "auto-session")
+time([[Config for auto-session]], false)
 -- Config for: telescope.nvim
 time([[Config for telescope.nvim]], true)
 require('config.telescope')
@@ -458,40 +477,45 @@ time([[Config for telescope.nvim]], false)
 time([[Config for kommentary]], true)
 require('config.kommentary')
 time([[Config for kommentary]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-require('config.gitsigns')
-time([[Config for gitsigns.nvim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
+-- Config for: treesitter
+time([[Config for treesitter]], true)
+require('config.nvim-treesitter')
+time([[Config for treesitter]], false)
+-- Config for: color
+time([[Config for color]], true)
+require('config.colorscheme')
+time([[Config for color]], false)
+-- Config for: nvim-neoclip.lua
+time([[Config for nvim-neoclip.lua]], true)
+try_loadstring("\27LJ\2\nf\0\0\3\0\5\0\f6\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\0016\0\0\0'\2\3\0B\0\2\0029\0\4\0'\2\1\0B\0\2\1K\0\1\0\19load_extension\14telescope\nsetup\fneoclip\frequire\0", "config", "nvim-neoclip.lua")
+time([[Config for nvim-neoclip.lua]], false)
 -- Config for: lspconfig
 time([[Config for lspconfig]], true)
 require('config.lsp-config')
 time([[Config for lspconfig]], false)
--- Config for: stabilize.nvim
-time([[Config for stabilize.nvim]], true)
-try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14stabilize\frequire\0", "config", "stabilize.nvim")
-time([[Config for stabilize.nvim]], false)
--- Config for: github-notifications.nvim
-time([[Config for github-notifications.nvim]], true)
-require('config.github-notifications')
-time([[Config for github-notifications.nvim]], false)
+-- Config for: nest.nvim
+time([[Config for nest.nvim]], true)
+try_loadstring("\27LJ\2\n'\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\fkeymaps\frequire\0", "config", "nest.nvim")
+time([[Config for nest.nvim]], false)
+-- Config for: copilot.vim
+time([[Config for copilot.vim]], true)
+require('config.copilot')
+time([[Config for copilot.vim]], false)
 -- Config for: dart-vim-plugin
 time([[Config for dart-vim-plugin]], true)
 require('config.dart-vim-plugin')
 time([[Config for dart-vim-plugin]], false)
--- Config for: lspsaga
-time([[Config for lspsaga]], true)
-require('config.lspsaga')
-time([[Config for lspsaga]], false)
--- Config for: nvim-dap
-time([[Config for nvim-dap]], true)
-require('config.dap')
-time([[Config for nvim-dap]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+require('config.luasnip')
+time([[Config for LuaSnip]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
+vim.cmd [[ packadd neorg ]]
+
+-- Config for: neorg
+require('config.neorg')
+
 vim.cmd [[ packadd tabout.nvim ]]
 
 -- Config for: tabout.nvim
@@ -502,12 +526,13 @@ vim.cmd [[ packadd lualine.nvim ]]
 -- Config for: lualine.nvim
 require('config.lualine')
 
-vim.cmd [[ packadd neorg ]]
-
--- Config for: neorg
-require('config.neorg')
-
 time([[Sequenced loading]], false)
+
+-- Command lazy-loads
+time([[Defining lazy-load commands]], true)
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file StartupTime lua require("packer.load")({'vim-startuptime'}, { cmd = "StartupTime", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+time([[Defining lazy-load commands]], false)
+
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
