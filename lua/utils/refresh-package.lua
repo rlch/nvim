@@ -9,9 +9,4 @@ M.refresh_package = function(regex)
 	end
 end
 
-M.refresh_ghn = function()
-	M.refresh_package 'github'
-	require('github-notifications').setup {}
-end
-
 return M

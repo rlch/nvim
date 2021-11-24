@@ -1,4 +1,5 @@
 local nest = require 'nest'
+
 nest.applyKeymaps {
   { mode = 'n', options = { noremap = true }, { ';', ':' } },
   { mode = 'v', options = { noremap = true }, { ';', ':' } },
@@ -50,6 +51,7 @@ nest.applyKeymaps {
           {
             'f',
             {
+              { 'a', '<cmd>lua require("telescope.builtin").lsp_code_actions()<cr>' },
               { 'b', '<cmd>lua require("telescope.builtin").buffers()<cr>' },
               { 'c', '<cmd>Telescope neoclip<CR>' },
               { 'd', '<cmd>lua require("telescope.builtin").lsp_workspace_diagnostics()<cr>' },
@@ -94,8 +96,12 @@ nest.applyKeymaps {
               { 'g', '<cmd>lua require("neogit").open({ kind = "split" })<CR>' },
               {
                 'h',
-                '<cmd> lua require("utils.synstack").get_highlight_groups()<cr>',
+                '<cmd>lua require("utils.synstack").get_highlight_groups()<cr>',
                 options = { silent = false },
+              },
+              {
+                'l',
+                '<cmd>let @"=join([expand("%"), line(".")], " ")<CR>',
               },
             },
           },
@@ -113,12 +119,6 @@ nest.applyKeymaps {
               {
                 'f',
                 '<cmd>lua vim.lsp.buf.formatting()<cr>',
-                -- require 'utils.filetype-depend' {
-                -- 	lua = function()
-                -- 		vim.cmd[[Format]]
-                -- 	end,
-                -- 	_ = vim.lsp.buf.formatting,
-                -- },
               },
             },
           },
@@ -126,30 +126,34 @@ nest.applyKeymaps {
             { 'p', '<cmd>MarkdownPreview<cr>' },
           } },
           { 'nl', '<cmd>lua vim.cmd("edit " .. vim.lsp.get_log_path())<CR>' },
-          { 'r', {
-            { 'o', '<cmd>NvimTreeToggle<CR><cmd>NvimTreeToggle<CR>' },
-            { 'sb', '<cmd>RustStartStandaloneServerForBuffer<cr>' },
-          } },
+          {
+            'r',
+            {
+              { 'o', '<cmd>NvimTreeToggle<CR><cmd>NvimTreeToggle<CR>' },
+              { 'sb', '<cmd>RustStartStandaloneServerForBuffer<cr>' },
+            },
+          },
           {
             's',
             {
               { 'v', '<cmd>source $MYVIMRC<cr>' },
               { 'g', '<cmd>lua require("utils.refresh-package").refresh_ghn()<cr>' },
               { 'w', '<cmd>lua require("spectre").open_visual({select_word=true})<cr>' },
+              { 's', '<cmd>PackerSync<CR>' },
             },
           },
           {
             't',
             {
               { 'o', '<cmd>NvimTreeToggle<CR>' },
-              { 'd', '<Plug>(ultest-debug-nearest)<CR>' },
-              { 'D', '<Plug>(ultest-debug)<CR>' },
-              { 'f', '<Plug>(ultest-run-file)<CR>' },
-              { 'h', '<Plug>(ultest-output-show)<CR>' },
-              { 'n', '<Plug>(ultest-run-nearest)<CR>' },
-              { 's', '<Plug>(ultest-summary-toggle)<CR>' },
-              { 'x', '<Plug>(ultest-stop-nearest)<CR>' },
-              { 'X', '<Plug>(ultest-stop-file)<CR>' },
+              { 'd', '<cmd>UltestDebugNearest<cr>' },
+              { 'D', '<cmd>UltestDebug<cr>' },
+              { 'f', '<cmd>Ultest<cr>' },
+              { 'h', '<cmd>UltestOutput<cr>' },
+              { 'n', '<cmd>UltestNearest<cr>' },
+              { 's', '<cmd>UltestSummary!<cr>' },
+              { 'x', '<cmd>UltestStopNearest<cr>' },
+              { 'X', '<cmd>UltestStop<cr>' },
             },
           },
           { '<leader>', '<cmd>noh<cr><cr>' },
@@ -191,10 +195,6 @@ nest.applyKeymaps {
           { '<C-g>', '<Cmd>BufferLineGroupClose<CR>' },
         },
       },
-      -- { '<Space>', '<Nop>'},
-      -- { '<C-q>', '<Nop>'},
-      -- { ';', ':', options = { silent = false } },
-      -- { ':', ';' },
     },
   },
   {
@@ -216,36 +216,35 @@ nest.applyKeymaps {
     mode = 'c',
     options = { noremap = true, expr = true },
     {
-      { '<C-k>', 'wildmenumode() ? "\\<C-p>" : "\\<C-k>"' },
-      -- { '<Space>', 'wildmenumode() ? "\\<C-y>" : "\\<Space>"' }
+      { '<C-j>', [[pumvisible() ? "\<C-n>" : "\<C-j>"]] },
+      { '<C-k>', [[pumvisible() ? "\<C-p>" : "\<C-k>"]] },
     },
   },
   {
     mode = 'n',
     options = { noremap = false },
     {
-      { '<leader>', {
-        { 'a', '<cmd>lua require("lsp-fastaction").code_action()<cr>' },
-      } },
+      {
+        '<leader>',
+        {
+          { 'a', '<cmd>lua require("lsp-fastaction").code_action()<cr>' },
+          { 'S', '<cmd>lua require("spectre").open()<cr>' },
+        },
+      },
       { 'gx', 'viW"ay:!open <C-R>a &<cr>' },
       { 'K', '<cmd>lua require("lspsaga.hover").render_hover_doc()<cr>' },
       { 'H', '^', mode = 'nv' },
       { 'L', '$', mode = 'nv' },
       { 'Q', '@q' },
       { 'Y', 'y$' },
-      { 'S', '<cmd>lua require("spectre").open()<cr>' },
       { '<C-k>', '<C-p>' },
       { '<C-j>', '<C-n>' },
     },
   },
   {
     mode = 'i',
-    options = { noremap = false },
-    {
-      options = { expr = true },
-      { '<C-j>', 'pumvisible() ? "\\<Down>" : "\\<C-j>"' },
-      { '<C-k>', 'pumvisible() ? "\\<Up>" : "\\<C-k>"' },
-    },
+    options = { noremap = false, expr = true },
+    { '<C-j>', [[pumvisible() ? "\<C-n>" : "\<C-j>"]] },
+    { '<C-k>', [[pumvisible() ? "\<C-p>" : "\<C-k>"]] },
   },
 }
-

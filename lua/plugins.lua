@@ -1,3 +1,5 @@
+local fn = vim.fn
+
 local dev_dir = require 'utils.platform-depend' {
   macos = '~/Coding/Personal/',
   linux = '~/Coding/Personal/',
@@ -5,6 +7,7 @@ local dev_dir = require 'utils.platform-depend' {
 }
 
 -- require 'impatient'
+local PACKER_COMPILED_PATH = fn.stdpath 'cache' .. '/packer/packer_compiled.lua'
 
 require('packer').startup {
   function(use)
@@ -16,10 +19,15 @@ require('packer').startup {
 
     -- Common
     use {
-      'nvim-lua/plenary.nvim',
-      as = 'plenary',
+      {
+        'nvim-lua/plenary.nvim',
+        as = 'plenary',
+      },
+      {
+        'nvim-lua/popup.nvim',
+        as = 'popup',
+      },
     }
-
     -- Fuzzy finder
     use {
       'nvim-telescope/telescope.nvim',
@@ -65,11 +73,22 @@ require('packer').startup {
       },
     }
 
+    -- Rust
+    use {
+      'simrat39/rust-tools.nvim',
+      requires = 'neovim/nvim-lspconfig',
+      wants = {
+        'popup',
+        'plenary',
+        'nvim-telescope/telescope.nvim',
+      },
+      config = [[require('config.rust-tools')]],
+    }
+
     -- LSP
     use {
       {
         'neovim/nvim-lspconfig',
-        as = 'lspconfig',
         config = [[require('config.lsp-config')]],
       },
       'ray-x/lsp_signature.nvim',
@@ -93,14 +112,13 @@ require('packer').startup {
         'L3MON4D3/LuaSnip',
         config = [[require('config.luasnip')]],
       },
-      use 'rlch/friendly-snippets',
+      'rlch/friendly-snippets',
     }
 
     -- Autocomplete
     use {
       {
         'hrsh7th/nvim-cmp',
-        as = 'nvim-cmp',
         config = [[require('config.nvim-cmp')]],
         requires = {
           'saadparwaiz1/cmp_luasnip',
@@ -128,9 +146,9 @@ require('packer').startup {
 
     -- UI + Highlighting
     use {
+      dev_dir .. 'lsp-fastaction.nvim',
       {
         'tami5/lspsaga.nvim',
-        'windwp/lsp-fastaction.nvim',
         as = 'lspsaga',
         config = [[require('config.lspsaga')]],
       },
@@ -167,17 +185,17 @@ require('packer').startup {
         'iamcco/markdown-preview.nvim',
         run = 'cd app && npm install',
         setup = function()
-          -- vim.g.mkdp_filetypes = { 'markdown' }
+          vim.g.mkdp_filetypes = { 'markdown' }
         end,
         ft = { 'markdown' },
       },
       use {
         'plasticboy/vim-markdown',
-        --[[ config = function()
-        vim.g.vim_markdown_math = 1
-        vim.g.vim_markdown_strikethrough = 1
-        vim.g.vim_markdown_new_list_item_indent = 2
-      end ]]
+        config = function()
+          vim.g.vim_markdown_math = 1
+          vim.g.vim_markdown_strikethrough = 1
+          vim.g.vim_markdown_new_list_item_indent = 2
+        end,
       },
       'vim-pandoc/vim-pandoc',
       'vim-pandoc/vim-pandoc-syntax',
@@ -195,8 +213,12 @@ require('packer').startup {
         'abecodes/tabout.nvim',
         config = function()
           require('tabout').setup {
+            tabkey = '',
+            -- backwards_tabkey = '',
+            act_as_tab = true,
+            act_as_shift_tab = true,
             completion = false,
-            ignore_beginning = false,
+            ignore_beginning = true,
             tabouts = {
               { open = "'", close = "'" },
               { open = '"', close = '"' },
@@ -230,6 +252,7 @@ require('packer').startup {
         config = [[require('config.kommentary')]],
       },
       'tpope/vim-abolish',
+      'ggandor/lightspeed.nvim',
     }
 
     -- Diagnostics & utilities
@@ -237,8 +260,8 @@ require('packer').startup {
       'dstein64/vim-startuptime',
       cmd = 'StartupTime',
       config = function()
-        --[[ vim.g.startuptime_tries = 15
-        vim.g.startuptime_exe_args = { '+let g:auto_session_enabled = 0' } ]]
+        vim.g.startuptime_tries = 15
+        vim.g.startuptime_exe_args = { '+let g:auto_session_enabled = 0' }
       end,
     }
 
@@ -252,9 +275,9 @@ require('packer').startup {
       {
         'rmagatti/auto-session',
         config = function()
-          --[[ require('auto-session').setup {
-          auto_session_root_dir = ('%s/session/auto/'):format(vim.fn.stdpath 'data'),
-        } ]]
+          require('auto-session').setup {
+            auto_session_root_dir = ('%s/session/auto/'):format(vim.fn.stdpath 'data'),
+          }
         end,
       },
       {
@@ -275,17 +298,18 @@ require('packer').startup {
     -- Git
     use {
       {
-        'TimUntersberger/neogit',
-        config = [[require('config.neogit')]],
-        disable = true,
-      },
-      {
         'lewis6991/gitsigns.nvim',
         requires = { 'plenary' },
         config = [[require('config.gitsigns')]],
       },
+      {
+        'sindrets/diffview.nvim',
+        requires = 'plenary',
+        config = [[require('config.diffview')]],
+        disable = true,
+      },
+      { 'tpope/vim-fugitive' },
     }
-
     -- Configuration
     use {
       'folke/which-key.nvim',
@@ -325,7 +349,17 @@ require('packer').startup {
       },
     }
   end,
+  log = { level = 'info' },
   config = {
-    compile_path = vim.fn.stdpath 'config' .. '/lua/packer_compiled.lua',
+    compile_path = PACKER_COMPILED_PATH,
+    profile = {
+      enable = true,
+      threshold = 1,
+    },
   },
 }
+
+if not vim.g.packer_compiled_loaded and vim.loop.fs_stat(PACKER_COMPILED_PATH) then
+  vim.cmd(string.format('source %s', PACKER_COMPILED_PATH))
+  vim.g.packer_compiled_loaded = true
+end
