@@ -1,34 +1,15 @@
--- vim.cmd'let g:mapleader = " "'
 local g = vim.g
 g.mapleader = [[ ]]
 
-local nvim_cmd = vim.api.nvim_command
 local cmd = vim.cmd
 local o_s = vim.o
 
 local function opt(o, v, scopes)
-	scopes = scopes or { o_s }
-	for _, s in ipairs(scopes) do
-		s[o] = v
-	end
+  scopes = scopes or { o_s }
+  for _, s in ipairs(scopes) do
+    s[o] = v
+  end
 end
-
-local function autocmd(group, cmds, clear)
-	clear = clear == nil and false or clear
-	if type(cmds) == 'string' then
-		cmds = { cmds }
-	end
-	cmd('augroup ' .. group)
-	if clear then
-		cmd [[au!]]
-	end
-	for _, c in ipairs(cmds) do
-		cmd('autocmd ' .. c)
-	end
-	cmd [[augroup END]]
-end
-
-require('autocmd').setup()
 
 opt('hidden', true)
 opt('encoding', 'utf-8')
@@ -57,33 +38,43 @@ opt('autoread', true)
 opt('wrap', false)
 opt('termguicolors', true)
 
-vim.cmd [[ 
+cmd [[ 
   set iskeyword+=-
   set formatoptions+=t
-  set formatoptions-=cr
+  set formatoptions-=o
   set t_Co=256
   set nu rnu
   set nowritebackup
   set noea
   filetype plugin on
 ]]
+
 cmd [[command! PackerInstall packadd packer.nvim | lua require('plugins').install()]]
 cmd [[command! PackerUpdate packadd packer.nvim | lua require('plugins').update()]]
 cmd [[command! PackerSync packadd packer.nvim | lua require('plugins').sync()]]
 cmd [[command! PackerClean packadd packer.nvim | lua require('plugins').clean()]]
 cmd [[command! PackerCompile packadd packer.nvim | lua require('plugins').compile()]]
 
-nvim_cmd ':command! WQ wq'
-nvim_cmd ':command! Wq wq'
-nvim_cmd ':command! W w'
-nvim_cmd ':command! Q q'
-nvim_cmd ':command! WA wa'
-nvim_cmd ':command! Wa wa'
-nvim_cmd ':command! QA qa'
-nvim_cmd ':command! Qa qa'
-nvim_cmd ':command! WQa wqa'
-nvim_cmd ':command! Wqa wqa'
-nvim_cmd ':command! WQA wqa'
+cmd [[
+augroup packer_user_config
+autocmd!
+autocmd BufWritePost plugins.lua so % | PackerCompile
+augroup end
 
-vim.g.termguicolors = true
+au BufWritePre * lua vim.lsp.buf.formatting()
+autocmd BufNewFile,BufRead,FileType * setlocal formatoptions-=o
+]]
+
+g.termguicolors = true
 vim.opt.termguicolors = true
+
+local ok, reload = pcall(require, 'plenary.reload')
+RELOAD = ok and reload.reload_module or function(...)
+  return ...
+end
+function R(name)
+  RELOAD(name)
+  return require(name)
+end
+
+R 'plugins'
