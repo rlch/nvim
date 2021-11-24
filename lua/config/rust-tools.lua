@@ -19,7 +19,8 @@ require 'rust-tools'.setup{
     settings = {
       ['rust-analyzer'] = {
         checkOnSave = {
-          command = 'clippy'
+          enable = true,
+          command = 'clippy',
         }
       }
     }

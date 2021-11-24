@@ -7,7 +7,8 @@ require('nvim-tree').setup {
   diagnostics = { enable = false },
   auto_close = false,
   view = {
-    auto_resize = false,
+    width = 35,
+    auto_resize = true,
     mappings = {
       custom_only = false,
       list = {
@@ -16,13 +17,14 @@ require('nvim-tree').setup {
     },
   },
   hijack_cursor = true,
-  update_cwd = false,
+  update_cwd = true,
   update_focused_file = {
     enable = true,
-    update_cwd = false,
+    update_cwd = true,
   },
-  update_to_buf_dir = { enable = true },
+  -- update_to_buf_dir = { enable = true },
 }
+
 -- g.nvim_tree_disable_window_picker = 1
 g.nvim_tree_window_picker_exclude = {
   filetype = {

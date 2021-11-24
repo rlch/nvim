@@ -27,15 +27,15 @@ cmp.setup {
     end,
   },
   mapping = {
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-i>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
+    ['<C-D>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-F>'] = cmp.mapping.scroll_docs(4),
+    ['<C-I>'] = cmp.mapping.complete(),
+    ['<C-E>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm { select = true },
-    ['<C-n>'] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
-    ['<C-p>'] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
-    ['<Tab>'] = cmp.mapping(function(fallback)
-      if luasnip.expand_or_jumpable() then
+    ['<C-N>'] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert },
+    ['<C-P>'] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
+    ['<TAB>'] = cmp.mapping(function(fallback)
+      if luasnip.expand_or_locally_jumpable() then
         luasnip.expand_or_jump()
       elseif api.nvim_get_mode().mode == 'c' then
         fallback()
@@ -46,8 +46,7 @@ cmp.setup {
       'i',
       'c',
     }),
-
-    ['<S-Tab>'] = cmp.mapping(function(fallback)
+    ['<S-TAB>'] = cmp.mapping(function(fallback)
       if luasnip.jumpable(-1) then
         luasnip.jump(-1)
       elseif api.nvim_get_mode().mode == 'c' then
