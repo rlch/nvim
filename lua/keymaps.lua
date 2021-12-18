@@ -26,16 +26,16 @@ nest.applyKeymaps {
             'd',
             {
               { 'b', '<cmd>lua require"dap".toggle_breakpoint()<cr>' },
-              {
+              --[[ {
                 'bl',
                 '<cmd>lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message<cmd> "))<cr>',
-              },
+              }, ]]
               {
                 'B',
                 '<cmd>lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition<cmd> "))<cr>',
               },
-              { 'c', '<cmd>lua require"dapui".close()<cr>' },
-              { 'g', '<cmd>lua require"dap".continue()<cr>' },
+              { 'x', '<cmd>lua require"dapui".close()<cr>' },
+              { 'c', '<cmd>lua require"dap".continue()<cr>' },
               { 'h', '<cmd>lua require"lspsaga.diagnostic".show_line_diagnostics()<cr>' },
               { 'k', '<cmd>lua require"lspsaga.diagnostic".lsp_jump_diagnostic_prev()<CR>' },
               { 'j', '<cmd>lua require"lspsaga.diagnostic".lsp_jump_diagnostic_next()<CR>' },

@@ -22,7 +22,7 @@ require("dapui").setup({
       { id = "watches", size = 00.25 },
     },
     size = 40,
-    position = "left", -- Can be "left" or "right"
+    position = "right", -- Can be "left" or "right"
   },
   tray = {
    -- open_on_start = false,

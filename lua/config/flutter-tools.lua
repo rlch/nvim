@@ -27,6 +27,7 @@ require('flutter-tools').setup {
   },
   debugger = { -- integrate with nvim dap + install dart code debugger
     enabled = true,
+    run_via_dap = true,
   },
   fvm = true,
   -- flutter_path = "$HOME/fvm/default/bin/flutter", -- <-- this takes priority over the lookup
@@ -60,7 +61,7 @@ require('flutter-tools').setup {
       return config
     end, ]]
     capabilities = capabilities,
-    on_attach = function(client, bufnr)
+    on_attach = function(_, _)
       --[[ require "lsp_signature".setup({
         bind = true,
         handler_opts = {

@@ -112,7 +112,7 @@ require('packer').startup {
         'L3MON4D3/LuaSnip',
         config = [[require('config.luasnip')]],
       },
-      'rlch/friendly-snippets',
+      dev_dir ..'friendly-snippets',
     }
 
     -- Autocomplete
