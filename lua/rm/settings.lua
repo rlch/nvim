@@ -33,7 +33,7 @@ opt.relativenumber = true
 opt.cursorline = true
 opt.completeopt = 'menu,menuone,preview,noselect,longest'
 
-opt.foldlevelstart = 20
+opt.foldlevelstart = 99
 vim.wo.foldcolumn = '0'
 vim.wo.foldenable = true
 vim.wo.foldmethod = 'manual'

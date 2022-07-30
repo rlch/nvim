@@ -20,7 +20,11 @@ end
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match '%s' == nil
+  return col ~= 0
+    and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]
+        :sub(col, col)
+        :match '%s'
+      == nil
 end
 
 local ALL = { 'i', 'c', 's' }
@@ -88,6 +92,7 @@ cmp.setup {
     { name = 'path' },
     { name = 'tmux' },
     { name = 'rg' },
+    { name = 'nvim_lsp_signature_help' },
   },
   formatting = {
     format = function(entry, vim_item)
